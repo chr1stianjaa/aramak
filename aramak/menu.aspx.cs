@@ -16,57 +16,22 @@ namespace aramak
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Response.Redirect("summary.aspx");
+            Response.Redirect("menu2.aspx");
         }
 
-        protected void peppizza_CheckedChanged(object sender, EventArgs e)
+        protected void btnConfirm_Click(object sender, EventArgs e)
         {
-            Calculatetotal();
-        }
+            PIZZADATABASEEntities db = new PIZZADATABASEEntities();
+            var dbPIZZA = db.PIZZAs;
+            
+            var newPIZZA = new PIZZA();
 
-        protected void margpizza_CheckedChanged(object sender, EventArgs e)
-        {
-            Calculatetotal();
-        }
+            newPIZZA.Type_of_Pizza = txtPizza.Text;
+            newPIZZA.Price = int.Parse(txtPizza.Text);
 
-        protected void ninepizza_CheckedChanged(object sender, EventArgs e)
-        {
-            Calculatetotal();
-        }
-
-        protected void twelvepizza_CheckedChanged(object sender, EventArgs e)
-        {
-            Calculatetotal();
-        }
-
-        private void Calculatetotal()
-        {
-            double total = 0.0;
-
-            if (peppizza.Checked)
-            {
-                total = 3.80;
-            }
-            else if (margpizza.Checked)
-            {
-                total = 3.60;
-            }
-
-            if (ninepizza.Checked)
-            {
-                total = total + 1;
-            }
-            else if (twelvepizza.Checked)
-            {
-                total = total + 2;
-            }
-
-            resultLabel.Text = "£" + total.ToString();
-        }
-
-        protected void totalbutton_Click(object sender, EventArgs e)
-        {
-            Calculatetotal();
+            dbPIZZA.Add(pizzas);
+            db.SaveChanges();
+            GridView1.DataBind();
         }
     }
 }

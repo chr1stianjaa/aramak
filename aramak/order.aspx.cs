@@ -18,5 +18,10 @@ namespace aramak
         {
             Response.Redirect("menu.aspx");
         }
+
+        protected void collectbutton_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

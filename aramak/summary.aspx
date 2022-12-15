@@ -20,12 +20,9 @@
             <br />
             Menu<br />
             <br />
-            <strong>Summary</strong><br />
+            Checkout<br />
             <br />
-            Checkout</div>
-        <p>
-            <asp:Button ID="continuesum" runat="server" OnClick="continuesum_Click" Text="CONTINUE" />
-        </p>
+            <strong>Summary</strong></div>
     </form>
 </body>
 </html>

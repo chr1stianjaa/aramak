@@ -11,23 +11,27 @@
         <div>
         </div>
         Login&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:RadioButton ID="collectbutton" runat="server" GroupName="order" Text="COLLECTION" />
-        <asp:RadioButton ID="dineinbutton" runat="server" GroupName="order" Text="DINE-IN" />
+        Time:<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
         <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:RadioButton ID="tenbutton" runat="server" GroupName="time" Text="10:45" />
         <br />
         <strong>Ordering</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:RadioButton ID="onebutton" runat="server" GroupName="time" Text="1:15" />
         <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:RadioButton ID="twobutton" runat="server" GroupName="time" Text="2:30" />
         <br />
         Menu<br />
         <br />
-        Summary<br />
-        <br />
         Order<br />
+        <br />
+        Summary<br />
+        <asp:GridView ID="grdCollection" runat="server" AutoGenerateColumns="False" DataKeyNames="CollectionID" DataSourceID="SqlDataSource1">
+            <Columns>
+                <asp:BoundField DataField="CollectionID" HeaderText="CollectionID" ReadOnly="True" SortExpression="CollectionID" />
+                <asp:BoundField DataField="Time" HeaderText="Time" SortExpression="Time" />
+            </Columns>
+        </asp:GridView>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [COLLECTION]"></asp:SqlDataSource>
+        <br />
         <p>
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="CONTINUE" />
         </p>

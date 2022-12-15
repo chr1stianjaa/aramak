@@ -12,21 +12,24 @@
             <asp:Image ID="Image1" runat="server" Height="323px" ImageUrl="pepperoni-pizza6+srgb..jpg" Width="261px" />
             <asp:Image ID="Image2" runat="server" Height="325px" ImageUrl="margherita-pizza-4.jpg" Width="300px" />
             <br />
-            Pepperoni Pizza&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Margherita Pizza<br />
-            <asp:RadioButton ID="peppizza" runat="server" GroupName="pizza" OnCheckedChanged="peppizza_CheckedChanged" Text="£3.80" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:RadioButton ID="margpizza" runat="server" GroupName="pizza" OnCheckedChanged="margpizza_CheckedChanged" Text="£3.60" />
+            <br />
+            Pizza:<asp:TextBox ID="txtPizza" runat="server"></asp:TextBox>
             <br />
             <br />
-            <asp:RadioButton ID="ninepizza" runat="server" GroupName="size" OnCheckedChanged="ninepizza_CheckedChanged" Text="9' £1" />
-            <br />
-            <asp:RadioButton ID="twelvepizza" runat="server" GroupName="size" OnCheckedChanged="twelvepizza_CheckedChanged" Text="12' £2" />
+            Price:<asp:TextBox ID="txtPrice" runat="server"></asp:TextBox>
             <br />
             <br />
-            <asp:Button ID="totalbutton" runat="server" OnClick="totalbutton_Click" Text="Check Total" />
+            <asp:Button ID="btnConfirm" runat="server" OnClick="btnConfirm_Click" Text="CONFIRM" />
             <br />
-            <br />
-            Total:<asp:Label ID="resultLabel" runat="server" Text="£0.00"></asp:Label>
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="PizzaID" DataSourceID="SqlDataSource1">
+                <Columns>
+                    <asp:CommandField ShowSelectButton="True" />
+                    <asp:BoundField DataField="PizzaID" HeaderText="PizzaID" ReadOnly="True" SortExpression="PizzaID" />
+                    <asp:BoundField DataField="Type of Pizza" HeaderText="Type of Pizza" SortExpression="Type of Pizza" />
+                    <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
+                </Columns>
+            </asp:GridView>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [PIZZA]"></asp:SqlDataSource>
             <br />
             <br />
             <asp:Button ID="continuemenu" runat="server" OnClick="Button1_Click" Text="CONTINUE" />

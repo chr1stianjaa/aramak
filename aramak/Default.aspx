@@ -25,8 +25,8 @@
             <asp:Button ID="continue1" runat="server" OnClick="continue1_Click1" Text="CONTINUE" />
         </p>
         <p>
-            Summary <p>
-            Checkout</p>
+            Checkout<p>
+            Summary</p>
     </form>
 </body>
 </html>

@@ -13,10 +13,5 @@ namespace aramak
         {
 
         }
-
-        protected void continuesum_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("checkout.aspx");
-        }
     }
 }

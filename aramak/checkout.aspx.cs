@@ -13,5 +13,19 @@ namespace aramak
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            PIZZADATABASEEntities db = new PIZZADATABASEEntities();
+            var dbCustomers = db.Customers;
+
+            var newCustomer = new Customer();
+
+            newCustomer.Customer_Name = checkname.Text;
+            newCustomer.Customer_E_mail = checkemail.Text;
+
+            dbCustomers.Add();
+            db.SaveChanges();
+        }
     }
 }
