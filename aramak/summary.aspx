@@ -23,6 +23,8 @@
             Checkout<br />
             <br />
             <strong>Summary</strong></div>
+        <br />
+        <asp:Label ID="resultLabel7" runat="server"></asp:Label>
     </form>
 </body>
 </html>

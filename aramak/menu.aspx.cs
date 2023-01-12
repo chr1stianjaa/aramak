@@ -24,12 +24,12 @@ namespace aramak
             PIZZADATABASEEntities db = new PIZZADATABASEEntities();
             var dbPIZZA = db.PIZZAs;
             
-            var newPIZZA = new PIZZA();
+            PIZZA newPIZZA = new PIZZA();
 
             newPIZZA.Type_of_Pizza = txtPizza.Text;
-            newPIZZA.Price = int.Parse(txtPizza.Text);
+            newPIZZA.Price = int.Parse(txtPrice.Text);
 
-            dbPIZZA.Add(pizzas);
+            dbPIZZA.Add(newPIZZA);
             db.SaveChanges();
             GridView1.DataBind();
         }

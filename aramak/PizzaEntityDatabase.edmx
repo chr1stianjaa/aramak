@@ -4,13 +4,13 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PIZZADATABASEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="PIZZADATABASEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="COLLECTION">
           <Key>
             <PropertyRef Name="CollectionID" />
           </Key>
           <Property Name="CollectionID" Type="int" Nullable="false" />
-          <Property Name="Time" Type="int" />
+          <Property Name="Time" Type="smalldatetime" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
@@ -19,7 +19,6 @@
           <Property Name="CustomerID" Type="int" Nullable="false" />
           <Property Name="Customer Name" Type="varchar" MaxLength="50" />
           <Property Name="Customer E-mail" Type="varchar" MaxLength="50" />
-          <Property Name="Customer Phone Number." Type="int" />
         </EntityType>
         <EntityType Name="PIZZA">
           <Key>
@@ -27,15 +26,15 @@
           </Key>
           <Property Name="PizzaID" Type="int" Nullable="false" />
           <Property Name="Type of Pizza" Type="varchar" MaxLength="50" />
-          <Property Name="Price" Type="int" />
+          <Property Name="Price" Type="smallmoney" />
         </EntityType>
         <EntityType Name="PIZZA2">
           <Key>
             <PropertyRef Name="Pizza2ID" />
           </Key>
-          <Property Name="Pizza2ID" Type="int" Nullable="false" />
-          <Property Name="Size" Type="int" />
-          <Property Name="Price" Type="int" />
+          <Property Name="Pizza2ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Size" Type="varchar" MaxLength="50" />
+          <Property Name="Price" Type="smallmoney" />
         </EntityType>
         <EntityContainer Name="PIZZADATABASEModelStoreContainer">
           <EntitySet Name="COLLECTION" EntityType="Self.COLLECTION" Schema="dbo" store:Type="Tables" />
@@ -43,17 +42,22 @@
           <EntitySet Name="PIZZA" EntityType="Self.PIZZA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PIZZA2" EntityType="Self.PIZZA2" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PIZZADATABASEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="PIZZADATABASEEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="COLLECTIONs" EntityType="PIZZADATABASEModel.COLLECTION" />
+          <EntitySet Name="Customers" EntityType="PIZZADATABASEModel.Customer" />
+          <EntitySet Name="PIZZAs" EntityType="PIZZADATABASEModel.PIZZA" />
+          <EntitySet Name="PIZZA2" EntityType="PIZZADATABASEModel.PIZZA2" />
+        </EntityContainer>
         <EntityType Name="COLLECTION">
           <Key>
             <PropertyRef Name="CollectionID" />
           </Key>
           <Property Name="CollectionID" Type="Int32" Nullable="false" />
-          <Property Name="Time" Type="Int32" />
+          <Property Name="Time" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
@@ -62,7 +66,6 @@
           <Property Name="CustomerID" Type="Int32" Nullable="false" />
           <Property Name="Customer_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Customer_E_mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Customer_Phone_Number_" Type="Int32" />
         </EntityType>
         <EntityType Name="PIZZA">
           <Key>
@@ -70,22 +73,16 @@
           </Key>
           <Property Name="PizzaID" Type="Int32" Nullable="false" />
           <Property Name="Type_of_Pizza" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Price" Type="Int32" />
+          <Property Name="Price" Type="Decimal" Precision="10" Scale="4" />
         </EntityType>
         <EntityType Name="PIZZA2">
           <Key>
             <PropertyRef Name="Pizza2ID" />
           </Key>
           <Property Name="Pizza2ID" Type="Int32" Nullable="false" />
-          <Property Name="Size" Type="Int32" />
-          <Property Name="Price" Type="Int32" />
+          <Property Name="Size" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Decimal" Precision="10" Scale="4" />
         </EntityType>
-        <EntityContainer Name="PIZZADATABASEEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="COLLECTIONs" EntityType="Self.COLLECTION" />
-          <EntitySet Name="Customers" EntityType="Self.Customer" />
-          <EntitySet Name="PIZZAs" EntityType="Self.PIZZA" />
-          <EntitySet Name="PIZZA2" EntityType="Self.PIZZA2" />
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -95,36 +92,35 @@
           <EntitySetMapping Name="COLLECTIONs">
             <EntityTypeMapping TypeName="PIZZADATABASEModel.COLLECTION">
               <MappingFragment StoreEntitySet="COLLECTION">
-                <ScalarProperty Name="CollectionID" ColumnName="CollectionID" />
                 <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="CollectionID" ColumnName="CollectionID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="PIZZADATABASEModel.Customer">
               <MappingFragment StoreEntitySet="Customer">
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="Customer_Name" ColumnName="Customer Name" />
                 <ScalarProperty Name="Customer_E_mail" ColumnName="Customer E-mail" />
-                <ScalarProperty Name="Customer_Phone_Number_" ColumnName="Customer Phone Number." />
+                <ScalarProperty Name="Customer_Name" ColumnName="Customer Name" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PIZZAs">
             <EntityTypeMapping TypeName="PIZZADATABASEModel.PIZZA">
               <MappingFragment StoreEntitySet="PIZZA">
-                <ScalarProperty Name="PizzaID" ColumnName="PizzaID" />
-                <ScalarProperty Name="Type_of_Pizza" ColumnName="Type of Pizza" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Type_of_Pizza" ColumnName="Type of Pizza" />
+                <ScalarProperty Name="PizzaID" ColumnName="PizzaID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PIZZA2">
             <EntityTypeMapping TypeName="PIZZADATABASEModel.PIZZA2">
               <MappingFragment StoreEntitySet="PIZZA2">
-                <ScalarProperty Name="Pizza2ID" ColumnName="Pizza2ID" />
-                <ScalarProperty Name="Size" ColumnName="Size" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Pizza2ID" ColumnName="Pizza2ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -15,6 +15,6 @@ namespace aramak
     public partial class COLLECTION
     {
         public int CollectionID { get; set; }
-        public Nullable<int> Time { get; set; }
+        public Nullable<System.DateTime> Time { get; set; }
     }
 }

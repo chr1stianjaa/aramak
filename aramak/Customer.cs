@@ -17,6 +17,5 @@ namespace aramak
         public int CustomerID { get; set; }
         public string Customer_Name { get; set; }
         public string Customer_E_mail { get; set; }
-        public Nullable<int> Customer_Phone_Number_ { get; set; }
     }
 }

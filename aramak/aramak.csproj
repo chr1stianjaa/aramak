@@ -101,6 +101,12 @@
     <Content Include="images\__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__09__easy-pepperoni-pizza-lead-3-8f256746d649404baa36a44d271329bc.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="COLLECTION.cs">
+      <DependentUpon>PizzaEntityDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Customer.cs">
+      <DependentUpon>PizzaEntityDatabase.tt</DependentUpon>
+    </Compile>
     <Compile Include="menu2.aspx.cs">
       <DependentUpon>menu2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -114,12 +120,6 @@
     </Compile>
     <Compile Include="checkout.aspx.designer.cs">
       <DependentUpon>checkout.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="COLLECTION.cs">
-      <DependentUpon>PizzaEntityDatabase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Customer.cs">
-      <DependentUpon>PizzaEntityDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

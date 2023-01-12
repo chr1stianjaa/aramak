@@ -9,21 +9,11 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <strong>Ordering</strong><br />
         </div>
-        Login&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         Time:<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
         <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <br />
-        <strong>Ordering</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <br />
-        Menu<br />
-        <br />
-        Order<br />
-        <br />
-        Summary<br />
         <asp:GridView ID="grdCollection" runat="server" AutoGenerateColumns="False" DataKeyNames="CollectionID" DataSourceID="SqlDataSource1">
             <Columns>
                 <asp:BoundField DataField="CollectionID" HeaderText="CollectionID" ReadOnly="True" SortExpression="CollectionID" />
@@ -33,8 +23,12 @@
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [COLLECTION]"></asp:SqlDataSource>
         <br />
         <p>
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="CONTINUE" />
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="CONFIRM" />
         </p>
+        <p>
+            &nbsp;<asp:Button ID="btnContinue" runat="server" OnClick="btnContinue_Click" Text="CONTINUE" />
+        </p>
+        <asp:Label ID="resultLabel2" runat="server"></asp:Label>
     </form>
 </body>
 </html>

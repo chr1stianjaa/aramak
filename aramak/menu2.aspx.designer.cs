@@ -51,6 +51,15 @@ namespace aramak
         protected global::System.Web.UI.WebControls.TextBox txtSize;
 
         /// <summary>
+        /// txtPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPrice;
+
+        /// <summary>
         /// btnConfrim control.
         /// </summary>
         /// <remarks>
@@ -67,5 +76,14 @@ namespace aramak
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnContinue;
+
+        /// <summary>
+        /// resultLabel4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label resultLabel4;
     }
 }

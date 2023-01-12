@@ -16,6 +16,6 @@ namespace aramak
     {
         public int PizzaID { get; set; }
         public string Type_of_Pizza { get; set; }
-        public Nullable<int> Price { get; set; }
+        public Nullable<decimal> Price { get; set; }
     }
 }

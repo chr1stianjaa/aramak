@@ -34,6 +34,7 @@
             <br />
             <asp:Button ID="continuemenu" runat="server" OnClick="Button1_Click" Text="CONTINUE" />
         </div>
+        <asp:Label ID="resultLabel3" runat="server"></asp:Label>
     </form>
 </body>
 </html>

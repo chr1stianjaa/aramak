@@ -24,8 +24,15 @@ namespace aramak
             newCustomer.Customer_Name = checkname.Text;
             newCustomer.Customer_E_mail = checkemail.Text;
 
-            dbCustomers.Add();
+            dbCustomers.Add(newCustomer);
             db.SaveChanges();
+
+            grdCustomer.DataBind();
+        }
+
+        protected void btnContinue_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("summary.aspx");
         }
     }
 }

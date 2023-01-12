@@ -16,12 +16,25 @@ namespace aramak
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Response.Redirect("menu.aspx");
+            PIZZADATABASEEntities db = new PIZZADATABASEEntities();
+
+            var dbCOLLECTION = db.COLLECTIONs;
+
+            COLLECTION newCOLLECTION = new COLLECTION();
+
+            newCOLLECTION.Time = DateTime.Now;
+
+            dbCOLLECTION.Add(newCOLLECTION);
+
+            db.SaveChanges();
+
+            grdCollection.DataBind();
+
         }
 
-        protected void collectbutton_CheckedChanged(object sender, EventArgs e)
+        protected void btnContinue_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("menu.aspx");
         }
     }
 }

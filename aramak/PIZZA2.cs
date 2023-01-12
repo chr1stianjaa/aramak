@@ -15,7 +15,7 @@ namespace aramak
     public partial class PIZZA2
     {
         public int Pizza2ID { get; set; }
-        public Nullable<int> Size { get; set; }
-        public Nullable<int> Price { get; set; }
+        public string Size { get; set; }
+        public Nullable<decimal> Price { get; set; }
     }
 }
