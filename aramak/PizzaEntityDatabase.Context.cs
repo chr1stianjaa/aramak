@@ -25,9 +25,9 @@ namespace aramak
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<COLLECTION> COLLECTIONs { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<PIZZA> PIZZAs { get; set; }
         public virtual DbSet<PIZZA2> PIZZA2 { get; set; }
+        public virtual DbSet<Table> Tables { get; set; }
     }
 }

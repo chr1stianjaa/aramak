@@ -12,9 +12,11 @@ namespace aramak
     using System;
     using System.Collections.Generic;
     
-    public partial class COLLECTION
+    public partial class Table
     {
-        public int CollectionID { get; set; }
-        public Nullable<System.DateTime> Time { get; set; }
+        public int TransactionsID { get; set; }
+        public Nullable<int> CustomerID { get; set; }
+        public Nullable<decimal> TotalPrice { get; set; }
+        public Nullable<System.DateTime> DateOrderPlaced { get; set; }
     }
 }

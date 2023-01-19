@@ -9,19 +9,9 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Image ID="Image1" runat="server" Height="323px" ImageUrl="pepperoni-pizza6+srgb..jpg" Width="261px" />
-            <asp:Image ID="Image2" runat="server" Height="325px" ImageUrl="margherita-pizza-4.jpg" Width="300px" />
-            <br />
-            <br />
-            Pizza:<asp:TextBox ID="txtPizza" runat="server"></asp:TextBox>
-            <br />
-            <br />
-            Price:<asp:TextBox ID="txtPrice" runat="server"></asp:TextBox>
-            <br />
-            <br />
-            <asp:Button ID="btnConfirm" runat="server" OnClick="btnConfirm_Click" Text="CONFIRM" />
-            <br />
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="PizzaID" DataSourceID="SqlDataSource1">
+            <h1>PIZZA SELECTION<br />
+            </h1>
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="PizzaID" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" />
                     <asp:BoundField DataField="PizzaID" HeaderText="PizzaID" ReadOnly="True" SortExpression="PizzaID" />
@@ -30,6 +20,17 @@
                 </Columns>
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [PIZZA]"></asp:SqlDataSource>
+            <br />
+            <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="Pizza2ID" DataSourceID="SqlDataSource2">
+                <Columns>
+                    <asp:CommandField ShowSelectButton="True" />
+                    <asp:BoundField DataField="Pizza2ID" HeaderText="Pizza2ID" InsertVisible="False" ReadOnly="True" SortExpression="Pizza2ID" />
+                    <asp:BoundField DataField="Size" HeaderText="Size" SortExpression="Size" />
+                    <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
+                </Columns>
+            </asp:GridView>
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT * FROM [PIZZA2]"></asp:SqlDataSource>
+            <br />
             <br />
             <br />
             <asp:Button ID="continuemenu" runat="server" OnClick="Button1_Click" Text="CONTINUE" />

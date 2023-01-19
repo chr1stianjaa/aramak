@@ -5,13 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="PIZZADATABASEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="COLLECTION">
-          <Key>
-            <PropertyRef Name="CollectionID" />
-          </Key>
-          <Property Name="CollectionID" Type="int" Nullable="false" />
-          <Property Name="Time" Type="smalldatetime" />
-        </EntityType>
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="CustomerID" />
@@ -36,29 +29,31 @@
           <Property Name="Size" Type="varchar" MaxLength="50" />
           <Property Name="Price" Type="smallmoney" />
         </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="TransactionsID" />
+          </Key>
+          <Property Name="TransactionsID" Type="int" Nullable="false" />
+          <Property Name="CustomerID" Type="int" />
+          <Property Name="TotalPrice" Type="smallmoney" />
+          <Property Name="DateOrderPlaced" Type="smalldatetime" />
+        </EntityType>
         <EntityContainer Name="PIZZADATABASEModelStoreContainer">
-          <EntitySet Name="COLLECTION" EntityType="Self.COLLECTION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PIZZA" EntityType="Self.PIZZA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PIZZA2" EntityType="Self.PIZZA2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PIZZADATABASEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="PIZZADATABASEEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="COLLECTIONs" EntityType="PIZZADATABASEModel.COLLECTION" />
           <EntitySet Name="Customers" EntityType="PIZZADATABASEModel.Customer" />
           <EntitySet Name="PIZZAs" EntityType="PIZZADATABASEModel.PIZZA" />
           <EntitySet Name="PIZZA2" EntityType="PIZZADATABASEModel.PIZZA2" />
+          <EntitySet Name="Tables" EntityType="PIZZADATABASEModel.Table" />
         </EntityContainer>
-        <EntityType Name="COLLECTION">
-          <Key>
-            <PropertyRef Name="CollectionID" />
-          </Key>
-          <Property Name="CollectionID" Type="Int32" Nullable="false" />
-          <Property Name="Time" Type="DateTime" Precision="0" />
-        </EntityType>
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="CustomerID" />
@@ -83,20 +78,21 @@
           <Property Name="Size" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Price" Type="Decimal" Precision="10" Scale="4" />
         </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="TransactionsID" />
+          </Key>
+          <Property Name="TransactionsID" Type="Int32" Nullable="false" />
+          <Property Name="CustomerID" Type="Int32" />
+          <Property Name="TotalPrice" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="DateOrderPlaced" Type="DateTime" Precision="0" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="PIZZADATABASEModelStoreContainer" CdmEntityContainer="PIZZADATABASEEntities">
-          <EntitySetMapping Name="COLLECTIONs">
-            <EntityTypeMapping TypeName="PIZZADATABASEModel.COLLECTION">
-              <MappingFragment StoreEntitySet="COLLECTION">
-                <ScalarProperty Name="Time" ColumnName="Time" />
-                <ScalarProperty Name="CollectionID" ColumnName="CollectionID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="PIZZADATABASEModel.Customer">
               <MappingFragment StoreEntitySet="Customer">
@@ -121,6 +117,16 @@
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Size" ColumnName="Size" />
                 <ScalarProperty Name="Pizza2ID" ColumnName="Pizza2ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tables">
+            <EntityTypeMapping TypeName="PIZZADATABASEModel.Table">
+              <MappingFragment StoreEntitySet="Table">
+                <ScalarProperty Name="DateOrderPlaced" ColumnName="DateOrderPlaced" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="TransactionsID" ColumnName="TransactionsID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

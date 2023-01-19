@@ -17,7 +17,7 @@ namespace aramak
 
         protected void continue1_Click1(object sender, EventArgs e)
         {
-            Response.Redirect("order.aspx");
+            Response.Redirect("menu.aspx");
         }
     }
 }

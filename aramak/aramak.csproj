@@ -77,14 +77,12 @@
     <Content Include="App_Data\PIZZADATABASE_log.ldf">
       <DependentUpon>PIZZADATABASE.mdf</DependentUpon>
     </Content>
-    <Content Include="menu2.aspx" />
     <Content Include="checkout.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="images\homemade-margherita-pizza-4.jpg" />
     <Content Include="images\margherita-pizza-4.jpg" />
     <Content Include="menu.aspx" />
-    <Content Include="order.aspx" />
     <Content Include="images\pepperoni-pizza6+srgb..jpg" />
     <Content Include="PizzaEntityDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -101,18 +99,8 @@
     <Content Include="images\__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__09__easy-pepperoni-pizza-lead-3-8f256746d649404baa36a44d271329bc.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="COLLECTION.cs">
-      <DependentUpon>PizzaEntityDatabase.tt</DependentUpon>
-    </Compile>
     <Compile Include="Customer.cs">
       <DependentUpon>PizzaEntityDatabase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="menu2.aspx.cs">
-      <DependentUpon>menu2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="menu2.aspx.designer.cs">
-      <DependentUpon>menu2.aspx</DependentUpon>
     </Compile>
     <Compile Include="checkout.aspx.cs">
       <DependentUpon>checkout.aspx</DependentUpon>
@@ -137,13 +125,6 @@
     </Compile>
     <Compile Include="menu.aspx.designer.cs">
       <DependentUpon>menu.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="order.aspx.cs">
-      <DependentUpon>order.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="order.aspx.designer.cs">
-      <DependentUpon>order.aspx</DependentUpon>
     </Compile>
     <Compile Include="PIZZA.cs">
       <DependentUpon>PizzaEntityDatabase.tt</DependentUpon>
@@ -173,6 +154,9 @@
     </Compile>
     <Compile Include="summary.aspx.designer.cs">
       <DependentUpon>summary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Table.cs">
+      <DependentUpon>PizzaEntityDatabase.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
