@@ -11,6 +11,10 @@
         <div>
             <h1>PIZZA SELECTION<br />
             </h1>
+            Name:<br />
+            <asp:TextBox ID="cstmertxtBox" runat="server"></asp:TextBox>
+            <br />
+            <br />
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="PizzaID" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" />
@@ -51,6 +55,22 @@
             <br />
             <br />
             <asp:Button ID="continuemenu" runat="server" OnClick="Button1_Click" Text="Calculate Total" />
+            <br />
+            <br />
+            <asp:Button ID="checkoutbtn" runat="server" OnClick="checkoutbtn_Click" Text="Continue to Checkout" />
+            <br />
+            <br />
+            <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataKeyNames="PizzaIDD" DataSourceID="SqlDataSource3">
+                <Columns>
+                    <asp:BoundField DataField="PizzaIDD" HeaderText="PizzaIDD" InsertVisible="False" ReadOnly="True" SortExpression="PizzaIDD" />
+                    <asp:BoundField DataField="Type" HeaderText="Type" SortExpression="Type" />
+                    <asp:BoundField DataField="Size" HeaderText="Size" SortExpression="Size" />
+                    <asp:BoundField DataField="Topping" HeaderText="Topping" SortExpression="Topping" />
+                    <asp:BoundField DataField="CustomerName" HeaderText="CustomerName" SortExpression="CustomerName" />
+                    <asp:BoundField DataField="TotalCost" HeaderText="TotalCost" SortExpression="TotalCost" />
+                </Columns>
+            </asp:GridView>
+            <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Order]"></asp:SqlDataSource>
             <br />
             <br />
             <asp:Label ID="lblfromgrid2" runat="server"></asp:Label>

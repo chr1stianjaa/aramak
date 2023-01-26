@@ -88,6 +88,22 @@ namespace aramak
 
                     total = total + fromGrid + toTotal2;
                     resultLabel3.Text = "£" + total.ToString();
+
+                    PIZZADATABASEEntities db = new PIZZADATABASEEntities();
+                    var dbOrder = db.Orders;
+
+                    var newOrder = new Order();
+
+                    newOrder.Type = "" + lbltype.Text.ToString();
+                    newOrder.Size = ""+lblsize.Text;
+                    newOrder.Topping = "" + lbltopping.Text;
+                    newOrder.CustomerName = "" + cstmertxtBox.Text;
+                    newOrder.TotalCost = "" + resultLabel3.Text;
+
+                    dbOrder.Add(newOrder);
+                    db.SaveChanges();
+
+                    GridView3.DataBind();
                 }
 
             }
@@ -97,6 +113,16 @@ namespace aramak
                 
             }
             
+        }
+
+        protected void checkoutbtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("checkout.aspx");
+        }
+
+        protected void GridView3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CalculateTotal(5);
         }
     }
 }

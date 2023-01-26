@@ -13,6 +13,17 @@
           <Property Name="Customer Name" Type="varchar" MaxLength="50" />
           <Property Name="Customer E-mail" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="PizzaIDD" />
+          </Key>
+          <Property Name="PizzaIDD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+          <Property Name="Size" Type="varchar" MaxLength="50" />
+          <Property Name="Topping" Type="varchar" MaxLength="50" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="50" />
+          <Property Name="TotalCost" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="PIZZA">
           <Key>
             <PropertyRef Name="PizzaID" />
@@ -40,6 +51,7 @@
         </EntityType>
         <EntityContainer Name="PIZZADATABASEModelStoreContainer">
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PIZZA" EntityType="Self.PIZZA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PIZZA2" EntityType="Self.PIZZA2" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
@@ -53,6 +65,7 @@
           <EntitySet Name="PIZZAs" EntityType="PIZZADATABASEModel.PIZZA" />
           <EntitySet Name="PIZZA2" EntityType="PIZZADATABASEModel.PIZZA2" />
           <EntitySet Name="Tables" EntityType="PIZZADATABASEModel.Table" />
+          <EntitySet Name="Orders" EntityType="PIZZADATABASEModel.Order" />
         </EntityContainer>
         <EntityType Name="Customer">
           <Key>
@@ -86,6 +99,17 @@
           <Property Name="CustomerID" Type="Int32" />
           <Property Name="TotalPrice" Type="Decimal" Precision="10" Scale="4" />
           <Property Name="DateOrderPlaced" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="PizzaIDD" />
+          </Key>
+          <Property Name="PizzaIDD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Size" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Topping" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TotalCost" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -127,6 +151,18 @@
                 <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
                 <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
                 <ScalarProperty Name="TransactionsID" ColumnName="TransactionsID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="PIZZADATABASEModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="Topping" ColumnName="Topping" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="PizzaIDD" ColumnName="PizzaIDD" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
