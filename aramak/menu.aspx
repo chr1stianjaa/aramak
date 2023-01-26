@@ -41,6 +41,7 @@
             <br />
             <br />
             <br />
+            <asp:Label ID="lbltopping" runat="server"></asp:Label>
             <br />
             <asp:Label ID="lblsize" runat="server"></asp:Label>
             <br />
@@ -49,8 +50,7 @@
         <asp:Label ID="resultLabel3" runat="server"></asp:Label>
             <br />
             <br />
-            <asp:Button ID="continuemenu" runat="server" OnClick="Button1_Click" Text="CONTINUE" />
-            <br />
+            <asp:Button ID="continuemenu" runat="server" OnClick="Button1_Click" Text="Calculate Total" />
             <br />
             <br />
             <asp:Label ID="lblfromgrid2" runat="server"></asp:Label>

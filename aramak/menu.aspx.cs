@@ -34,22 +34,22 @@ namespace aramak
 
         protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CalculateTotal(0);
+            CalculateTotal(1);
         }
 
         protected void PineappleRB_CheckedChanged(object sender, EventArgs e)
         {
-            CalculateTotal(0);
+            CalculateTotal(2);
         }
 
         protected void ChillisRB_CheckedChanged(object sender, EventArgs e)
         {
-            CalculateTotal(0);
+            CalculateTotal(3);
         }
 
         protected void MushroomRB_CheckedChanged(object sender, EventArgs e)
         {
-            CalculateTotal(0);
+            CalculateTotal(4);
         }
 
         private void CalculateTotal(double fromGrid)
@@ -60,20 +60,43 @@ namespace aramak
             if (PineappleRB.Checked)
             {
                 total = 0.45;
+                lbltopping.Text = "Pineapple";
             }
 
             else if (ChillisRB.Checked)
             {
                 total = total = 0.50;
+                lbltopping.Text = "Chillis";
             }
 
             else
             {
                 total = 0.55;
+                lbltopping.Text = "Mushroom";
             }
+            try
+            {
+                if (fromGrid!=0)
+                {
+                    lblfromgrid2.Text = GridView2.SelectedValue.ToString();
 
-            total = total + fromGrid;
-            resultLabel3.Text = "£" + total.ToString();
+                    int idxxx = 2;
+                    lblsize.Text = GridView2.SelectedRow.Cells[idxxx].Text;
+                    int idxxxx = 3;
+                    lblprice2.Text = GridView2.SelectedRow.Cells[idxxxx].Text;
+                    double toTotal2 = Double.Parse((lblprice2.Text).ToString().Trim());
+
+                    total = total + fromGrid + toTotal2;
+                    resultLabel3.Text = "£" + total.ToString();
+                }
+
+            }
+            catch (Exception)
+            {
+
+                
+            }
+            
         }
     }
 }
