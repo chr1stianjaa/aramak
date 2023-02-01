@@ -24,6 +24,8 @@ namespace aramak
             lblprice.Text = GridView1.SelectedRow.Cells[idxx].Text;
             double toTotal = Double.Parse((lblprice.Text).ToString().Trim());
 
+
+
             CalculateTotal(toTotal);
         }
 
@@ -95,7 +97,7 @@ namespace aramak
                     var newOrder = new Order();
 
                     newOrder.Type = "" + lbltype.Text.ToString();
-                    newOrder.Size = ""+lblsize.Text;
+                    newOrder.Size = "" + lblsize.Text;
                     newOrder.Topping = "" + lbltopping.Text;
                     newOrder.CustomerName = "" + cstmertxtBox.Text;
                     newOrder.TotalCost = "" + resultLabel3.Text;
@@ -104,6 +106,7 @@ namespace aramak
                     db.SaveChanges();
 
                     GridView3.DataBind();
+
                 }
 
             }
@@ -123,6 +126,11 @@ namespace aramak
         protected void GridView3_SelectedIndexChanged(object sender, EventArgs e)
         {
             CalculateTotal(5);
+        }
+
+        protected void cstmertxtBox_TextChanged(object sender, EventArgs e)
+        {
+            CalculateTotal(6);
         }
     }
 }

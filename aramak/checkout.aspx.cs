@@ -21,8 +21,8 @@ namespace aramak
 
             var newCustomer = new Customer();
 
-            newCustomer.Customer_Name = checkname.Text;
-            newCustomer.Customer_E_mail = checkemail.Text;
+            newCustomer.Customer_Name = ""+checkname.Text;
+            newCustomer.Customer_E_mail = ""+checkemail.Text;
 
             dbCustomers.Add(newCustomer);
             db.SaveChanges();
@@ -32,7 +32,7 @@ namespace aramak
 
         protected void btnContinue_Click(object sender, EventArgs e)
         {
-            Response.Redirect("summary.aspx");
+            Response.Redirect("completed.aspx");
         }
     }
 }

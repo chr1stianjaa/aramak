@@ -17,6 +17,12 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
             Email:<asp:TextBox ID="checkemail" runat="server"></asp:TextBox>
             <br />
+            <br />
+            Card Details:<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            <br />
+            <br />
+            CVV:<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+            <br />
             <strong>&nbsp;<br />
             <asp:Button ID="confirmbutton" runat="server" Text="CONFIRM" OnClick="Button1_Click" />
             <br />

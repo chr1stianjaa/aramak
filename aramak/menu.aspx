@@ -12,7 +12,7 @@
             <h1>PIZZA SELECTION<br />
             </h1>
             Name:<br />
-            <asp:TextBox ID="cstmertxtBox" runat="server"></asp:TextBox>
+            <asp:TextBox ID="cstmertxtBox" runat="server" OnTextChanged="cstmertxtBox_TextChanged"></asp:TextBox>
             <br />
             <br />
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="PizzaID" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">

@@ -73,11 +73,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="15881.png" />
     <Content Include="App_Data\PIZZADATABASE.mdf" />
     <Content Include="App_Data\PIZZADATABASE_log.ldf">
       <DependentUpon>PIZZADATABASE.mdf</DependentUpon>
     </Content>
     <Content Include="checkout.aspx" />
+    <Content Include="completed.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="images\homemade-margherita-pizza-4.jpg" />
@@ -98,6 +100,13 @@
     <Content Include="images\__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__09__easy-pepperoni-pizza-lead-3-8f256746d649404baa36a44d271329bc.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="completed.aspx.cs">
+      <DependentUpon>completed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="completed.aspx.designer.cs">
+      <DependentUpon>completed.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Customer.cs">
       <DependentUpon>PizzaEntityDatabase.tt</DependentUpon>
     </Compile>
@@ -150,9 +159,6 @@
       <DependentUpon>PizzaEntityDatabase.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Table.cs">
-      <DependentUpon>PizzaEntityDatabase.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
