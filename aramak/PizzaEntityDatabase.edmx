@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="CustomerID" />
           </Key>
-          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Customer Name" Type="varchar" MaxLength="50" />
           <Property Name="Customer E-mail" Type="varchar" MaxLength="50" />
         </EntityType>
@@ -40,11 +40,23 @@
           <Property Name="Size" Type="varchar" MaxLength="50" />
           <Property Name="Price" Type="smallmoney" />
         </EntityType>
+        <EntityType Name="TestMenu">
+          <Key>
+            <PropertyRef Name="TestMenuID" />
+          </Key>
+          <Property Name="TestMenuID" Type="int" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+          <Property Name="Toppin" Type="varchar" MaxLength="50" />
+          <Property Name="Size" Type="varchar" MaxLength="50" />
+          <Property Name="Price" Type="varchar" MaxLength="50" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityContainer Name="PIZZADATABASEModelStoreContainer">
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PIZZA" EntityType="Self.PIZZA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PIZZA2" EntityType="Self.PIZZA2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TestMenu" EntityType="Self.TestMenu" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -55,7 +67,8 @@
           <EntitySet Name="PIZZAs" EntityType="PIZZADATABASEModel.PIZZA" />
           <EntitySet Name="PIZZA2" EntityType="PIZZADATABASEModel.PIZZA2" />
           <EntitySet Name="Orders" EntityType="PIZZADATABASEModel.Order" />
-        </EntityContainer>
+          <EntitySet Name="TestMenus" EntityType="PIZZADATABASEModel.TestMenu" />
+          </EntityContainer>
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="CustomerID" />
@@ -91,7 +104,18 @@
           <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="TotalCost" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
-      </Schema>
+        <EntityType Name="TestMenu">
+          <Key>
+            <PropertyRef Name="TestMenuID" />
+          </Key>
+          <Property Name="TestMenuID" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Toppin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Size" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -136,7 +160,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          <EntitySetMapping Name="TestMenus">
+            <EntityTypeMapping TypeName="PIZZADATABASEModel.TestMenu">
+              <MappingFragment StoreEntitySet="TestMenu">
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Toppin" ColumnName="Toppin" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="TestMenuID" ColumnName="TestMenuID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

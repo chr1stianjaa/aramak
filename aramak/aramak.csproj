@@ -96,6 +96,7 @@
       <DependentUpon>PizzaEntityDatabase.edmx</DependentUpon>
       <LastGenOutput>PizzaEntityDatabase.cs</LastGenOutput>
     </Content>
+    <Content Include="TestMenu.aspx" />
     <Content Include="Web.config" />
     <Content Include="images\__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__09__easy-pepperoni-pizza-lead-3-8f256746d649404baa36a44d271329bc.jpg" />
   </ItemGroup>
@@ -159,6 +160,17 @@
       <DependentUpon>PizzaEntityDatabase.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestMenu.aspx.cs">
+      <DependentUpon>TestMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestMenu.aspx.designer.cs">
+      <DependentUpon>TestMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestMenu.cs">
+      <DependentUpon>PizzaEntityDatabase.tt</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

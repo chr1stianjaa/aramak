@@ -9,7 +9,8 @@
         <EntityTypeShape EntityType="PIZZADATABASEModel.PIZZA" Width="1.5" PointX="0.75" PointY="3.75" />
         <EntityTypeShape EntityType="PIZZADATABASEModel.PIZZA2" Width="1.5" PointX="2.75" PointY="3.75" />
         <EntityTypeShape EntityType="PIZZADATABASEModel.Order" Width="1.5" PointX="3" PointY="0.875" />
-      </Diagram>
+        <EntityTypeShape EntityType="PIZZADATABASEModel.TestMenu" Width="1.5" PointX="5.375" PointY="0.75" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>
