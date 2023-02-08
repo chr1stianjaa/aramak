@@ -26,19 +26,32 @@
             <strong>&nbsp;<br />
             <asp:Button ID="confirmbutton" runat="server" Text="CONFIRM" OnClick="Button1_Click" />
             <br />
+            <asp:GridView ID="grdCustomer" runat="server" AutoGenerateColumns="False" DataKeyNames="CustomerID" DataSourceID="SqlDataSource1">
+                <Columns>
+                    <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" ReadOnly="True" SortExpression="CustomerID" />
+                    <asp:BoundField DataField="Customer Name" HeaderText="Customer Name" SortExpression="Customer Name" />
+                    <asp:BoundField DataField="Customer E-mail" HeaderText="Customer E-mail" SortExpression="Customer E-mail" />
+                </Columns>
+            </asp:GridView>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Customer]"></asp:SqlDataSource>
             <br />
             </strong>
             <asp:Button ID="btnContinue" runat="server" OnClick="btnContinue_Click" Text="CONTINUE" />
             <br />
+            <br />
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="PizzaIDD" DataSourceID="SqlDataSource2">
+                <Columns>
+                    <asp:BoundField DataField="PizzaIDD" HeaderText="PizzaIDD" InsertVisible="False" ReadOnly="True" SortExpression="PizzaIDD" />
+                    <asp:BoundField DataField="Type" HeaderText="Type" SortExpression="Type" />
+                    <asp:BoundField DataField="Size" HeaderText="Size" SortExpression="Size" />
+                    <asp:BoundField DataField="Topping" HeaderText="Topping" SortExpression="Topping" />
+                    <asp:BoundField DataField="CustomerName" HeaderText="CustomerName" SortExpression="CustomerName" />
+                    <asp:BoundField DataField="TotalCost" HeaderText="TotalCost" SortExpression="TotalCost" />
+                </Columns>
+            </asp:GridView>
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Order]"></asp:SqlDataSource>
+            <br />
             </div>
-        <asp:GridView ID="grdCustomer" runat="server" AutoGenerateColumns="False" DataKeyNames="CustomerID" DataSourceID="SqlDataSource1">
-            <Columns>
-                <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" ReadOnly="True" SortExpression="CustomerID" />
-                <asp:BoundField DataField="Customer Name" HeaderText="Customer Name" SortExpression="Customer Name" />
-                <asp:BoundField DataField="Customer E-mail" HeaderText="Customer E-mail" SortExpression="Customer E-mail" />
-            </Columns>
-        </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Customer]"></asp:SqlDataSource>
         <asp:Label ID="resultLabel5" runat="server"></asp:Label>
     </form>
 </body>

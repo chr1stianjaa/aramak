@@ -5,11 +5,10 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="4f2742ed5ca94eb78a82bc466c82f193" Name="Diagram1">
-        <EntityTypeShape EntityType="PIZZADATABASEModel.Customer" Width="1.5" PointX="0.625" PointY="1" />
         <EntityTypeShape EntityType="PIZZADATABASEModel.PIZZA" Width="1.5" PointX="0.75" PointY="3.75" />
         <EntityTypeShape EntityType="PIZZADATABASEModel.PIZZA2" Width="1.5" PointX="2.75" PointY="3.75" />
         <EntityTypeShape EntityType="PIZZADATABASEModel.Order" Width="1.5" PointX="3" PointY="0.875" />
-        <EntityTypeShape EntityType="PIZZADATABASEModel.TestMenu" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="PIZZADATABASEModel.Customer" Width="1.5" PointX="1.125" PointY="1.125" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

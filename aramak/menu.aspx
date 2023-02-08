@@ -60,7 +60,7 @@
             <asp:Button ID="checkoutbtn" runat="server" OnClick="checkoutbtn_Click" Text="Continue to Checkout" />
             <br />
             <br />
-            <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataKeyNames="PizzaIDD" DataSourceID="SqlDataSource3">
+            <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataKeyNames="PizzaIDD" DataSourceID="SqlDataSource3" Visible="False">
                 <Columns>
                     <asp:BoundField DataField="PizzaIDD" HeaderText="PizzaIDD" InsertVisible="False" ReadOnly="True" SortExpression="PizzaIDD" />
                     <asp:BoundField DataField="Type" HeaderText="Type" SortExpression="Type" />
@@ -73,13 +73,13 @@
             <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Order]"></asp:SqlDataSource>
             <br />
             <br />
-            <asp:Label ID="lblfromgrid2" runat="server"></asp:Label>
+            <asp:Label ID="lblfromgrid2" runat="server" Visible="False"></asp:Label>
             <br />
-            <asp:Label ID="lblprice2" runat="server"></asp:Label>
+            <asp:Label ID="lblprice2" runat="server" Visible="False"></asp:Label>
             <br />
-            <asp:Label ID="lblfromgrid" runat="server"></asp:Label>
+            <asp:Label ID="lblfromgrid" runat="server" Visible="False"></asp:Label>
             <br />
-            <asp:Label ID="lblprice" runat="server"></asp:Label>
+            <asp:Label ID="lblprice" runat="server" Visible="False"></asp:Label>
         </div>
     </form>
 </body>
