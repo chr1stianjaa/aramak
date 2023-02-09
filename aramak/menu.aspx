@@ -11,6 +11,10 @@
         <div>
             <h1>PIZZA SELECTION<br />
             </h1>
+            <asp:Image ID="Image1" runat="server" Height="183px" ImageUrl="807-8074705_margherita-dominos-margherita-pizza.png" Width="182px" />
+            <asp:Image ID="Image2" runat="server" Height="184px" ImageUrl="922-Deep-Pepperoni-Pizza-Lower-Fat.png" Width="185px" />
+            <br />
+            <br />
             Name:<br />
             <asp:TextBox ID="cstmertxtBox" runat="server" OnTextChanged="cstmertxtBox_TextChanged"></asp:TextBox>
             <br />

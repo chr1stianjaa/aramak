@@ -40,11 +40,23 @@
           <Property Name="Size" Type="varchar" MaxLength="50" />
           <Property Name="Price" Type="smallmoney" />
         </EntityType>
+        <EntityType Name="Test">
+          <Key>
+            <PropertyRef Name="TestID" />
+          </Key>
+          <Property Name="TestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Customer Name" Type="varchar" MaxLength="50" />
+          <Property Name="Size" Type="varchar" MaxLength="50" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+          <Property Name="Toppings" Type="varchar" MaxLength="50" />
+          <Property Name="Price" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityContainer Name="PIZZADATABASEModelStoreContainer">
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PIZZA" EntityType="Self.PIZZA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PIZZA2" EntityType="Self.PIZZA2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Test" EntityType="Self.Test" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -55,6 +67,7 @@
           <EntitySet Name="PIZZA2" EntityType="PIZZADATABASEModel.PIZZA2" />
           <EntitySet Name="Orders" EntityType="PIZZADATABASEModel.Order" />
           <EntitySet Name="Customers" EntityType="PIZZADATABASEModel.Customer" />
+          <EntitySet Name="Tests" EntityType="PIZZADATABASEModel.Test" />
           </EntityContainer>
         <EntityType Name="PIZZA">
           <Key>
@@ -90,6 +103,17 @@
           <Property Name="CustomerID" Type="Int32" Nullable="false" />
           <Property Name="Customer_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Customer_E_mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Test">
+          <Key>
+            <PropertyRef Name="TestID" />
+          </Key>
+          <Property Name="TestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Customer_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Size" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Toppings" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -133,6 +157,18 @@
                 <ScalarProperty Name="Customer_E_mail" ColumnName="Customer E-mail" />
                 <ScalarProperty Name="Customer_Name" ColumnName="Customer Name" />
                 <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tests">
+            <EntityTypeMapping TypeName="PIZZADATABASEModel.Test">
+              <MappingFragment StoreEntitySet="Test">
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Toppings" ColumnName="Toppings" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Customer_Name" ColumnName="Customer Name" />
+                <ScalarProperty Name="TestID" ColumnName="TestID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

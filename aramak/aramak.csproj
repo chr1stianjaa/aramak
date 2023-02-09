@@ -74,6 +74,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="15881.png" />
+    <Content Include="807-8074705_margherita-dominos-margherita-pizza.png" />
+    <Content Include="922-Deep-Pepperoni-Pizza-Lower-Fat.png" />
     <Content Include="App_Data\PIZZADATABASE.mdf" />
     <Content Include="App_Data\PIZZADATABASE_log.ldf">
       <DependentUpon>PIZZADATABASE.mdf</DependentUpon>
@@ -86,6 +88,7 @@
     <Content Include="images\margherita-pizza-4.jpg" />
     <Content Include="menu.aspx" />
     <Content Include="images\pepperoni-pizza6+srgb..jpg" />
+    <Content Include="Nescot-logo.jpg" />
     <Content Include="PizzaEntityDatabase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>PizzaEntityDatabase.Context.cs</LastGenOutput>
@@ -159,6 +162,9 @@
       <DependentUpon>PizzaEntityDatabase.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test.cs">
+      <DependentUpon>PizzaEntityDatabase.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
